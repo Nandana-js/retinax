@@ -1,0 +1,23 @@
+# Trained model weights
+*.pth
+*.pt
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node dependencies
+node_modules/
+
+# Local databases and logs
+*.db
+*.db-shm
+*.db-wal
+*.log

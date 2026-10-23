@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RetinaX – DR Screening</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Retina<span>X</span> <small>DR screening &amp; referral</small></h1>
+  <nav>
+    <button id="t-screen" class="on">New screening</button>
+    <button id="t-dash">Patient tracker</button>
+    <button id="t-docs">Doctors</button>
+  </nav>
+</header>
+
+<main id="v-screen">
+  <section class="card">
+    <h2>1 · Patient details &amp; retinal images</h2>
+    <div class="grid">
+      <label>Patient name<input id="name" placeholder="e.g. Lakshmi K"></label>
+      <label>Age<input id="age" type="number" min="1" max="110"></label>
+      <label>WhatsApp number<input id="phone" placeholder="+919876543210"></label>
+      <label>District<input id="district" list="dl" placeholder="Choose or type"></label>
+      <label>Years with diabetes<input id="dur" type="number" min="0" max="70"></label>
+    </div>
+    <datalist id="dl"></datalist>
+    <div class="grid" style="margin-top:12px">
+      <label>Right eye image<input id="right" type="file" accept="image/*"></label>
+      <label>Left eye image<input id="left" type="file" accept="image/*"></label>
+    </div>
+    <label class="chk"><input type="checkbox" id="consent"> Patient agrees to receive results and referral letter on WhatsApp</label>
+    <div class="row"><button class="btn" id="run" disabled>Run screening</button>
+      <span class="mut">Upload at least one eye. Both eyes are screened separately.</span></div>
+  </section>
+
+  <section class="card hide" id="res">
+    <h2>2 · Result</h2>
+    <div class="row" style="margin:0 0 12px"><b id="overall"></b><span class="badge" id="act"></span></div>
+    <div class="mut" id="actText"></div>
+    <div class="note hide" id="low"><b>Low confidence.</b> The model is unsure about at least one image, so the case is escalated for specialist review. Consider retaking the image.</div>
+    <div class="eyes" id="eyes"></div>
+  </section>
+
+  <section class="card hide" id="book">
+    <h2>3 · Appointment &amp; referral</h2>
+    <div id="bookBody"></div>
+  </section>
+</main>
+
+<main id="v-dash" class="hide">
+  <section class="card"><div class="stats" id="stats"></div></section>
+  <section class="card">
+    <h2>Screened patients</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Patient</th><th>Date</th><th>Grade</th><th>Action</th><th>Appointment</th><th>Status</th><th>WhatsApp</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="mut" id="empty">No patients yet. Complete a screening to see it here.</p>
+  </section>
+</main>
+
+<main id="v-docs" class="hide">
+  <section class="card">
+    <h2>Add a doctor</h2>
+    <div class="grid">
+      <label>Doctor name<input id="d-name" placeholder="Dr. Name"></label>
+      <label>Specialty<select id="d-spec"><option>Retina Specialist</option><option>Ophthalmologist</option></select></label>
+      <label>Hospital / clinic<input id="d-hosp"></label>
+      <label>District<input id="d-dist" list="dl"></label>
+      <label>Email (for reports)<input id="d-email" type="email" placeholder="doctor@hospital.org"></label>
+      <label>Phone<input id="d-phone" placeholder="+91…"></label>
+    </div>
+    <div class="row"><button class="btn" id="d-add">Add doctor</button><span class="mut" id="d-msg"></span></div>
+  </section>
+  <section class="card">
+    <h2>Listed doctors</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Doctor</th><th>Specialty</th><th>Hospital</th><th>District</th><th>Email</th><th>Free slots</th><th></th></tr></thead>
+      <tbody id="docRows"></tbody>
+    </table></div>
+    <p class="mut">Demo data: slots are generated automatically for each doctor you add.</p>
+  </section>
+</main>
+
+<div id="modal" class="hide"><div id="letter"></div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
