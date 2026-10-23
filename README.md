@@ -255,9 +255,14 @@ npm --version
 
 ## Contributors
 
-Developed collaboratively as an AI and web application project.
+This project was developed collaboratively by:
 
-Contributors can use the repository's Git history to identify individual code contributions.
+- **Nandana** — Team Lead
+- **Theja R** — Team Member
+- **Feona Varghese** — Team Member
+- **Hannath C Shabeer** — Team Member
+
+
 
 ## License
 
